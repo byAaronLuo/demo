@@ -4,7 +4,51 @@
 		<meta charset="utf-8" />
 		<title></title>
 	</head>
+	<style>
+		*{
+			margin: 0 0;
+			padding: 0 0;
+		}
+	</style>
+	<link rel="stylesheet" href="css/demo.css" />
+	<script type="text/javascript" src="js/demo.js" ></script>
 	<body>
-		
+		<!--轮播图容器-->
+		<div class="div_class_Container">
+			<!--轮播组件-->
+			<div class="div_class_Slide right_out">
+				<img src="img/1.jpg" class="div_class_Img"/>
+				<div class="div_class_Img_Dec">此图来源于网络</div>
+			</div>
+			<div class="div_class_Slide right_out">
+				<img src="img/2.jpg" class="div_class_Img"/>
+				<div class="div_class_Img_Dec">此图来源于网络</div>
+			</div>
+			<div class="div_class_Slide right_out">
+				<img src="img/3.jpg" class="div_class_Img"/>
+				<div class="div_class_Img_Dec">此图来源于网络</div>
+			</div>
+			<div class="div_class_Slide right_out">
+				<<img src="img/4.jpg" class="div_class_Img"/>
+				<div class="div_class_Img_Dec">此图来源于网络</div>
+			</div>
+			<div class="div_class_Slide right_out">
+				<img src="img/5.jpg" class="div_class_Img"/>
+				<div class="div_class_Img_Dec">此图来源于网络</div>
+			</div>
+			<div class="div_class_Slide right_out">
+				<img src="img/6.jpg" class="div_class_Img"/>
+				<div class="div_class_Img_Dec">此图来源于网络</div>
+			</div>
+			<!--一共六个容器实现轮播-->
+			
+			<!--导航点-->
+			<div id="div_id_Slide_Tabs"></div>
+		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	window.onload = function(){
+		init_tabs();
+	}
+</script>
