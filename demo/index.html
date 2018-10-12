@@ -14,29 +14,29 @@
 	<script type="text/javascript" src="js/demo.js" ></script>
 	<body>
 		<!--轮播图容器-->
-		<div class="div_class_Container">
+		<div class="div_class_Container" onmouseenter = "mouseIn()" onmouseleave="mouseOut()">
 			<!--轮播组件-->
-			<div class="div_class_Slide" style="z-index: 7">
+			<div class="div_class_Slide " style="z-index: 7">
 				<img src="img/1.jpg" class="div_class_Img"/>
 				<div class="div_class_Img_Dec">此图来源于网络</div>
 			</div>
-			<div class="div_class_Slide " style="z-index: 6">
+			<div class="div_class_Slide right_out" style="z-index: 6">
 				<img src="img/2.jpg" class="div_class_Img"/>
 				<div class="div_class_Img_Dec">此图来源于网络</div>
 			</div>
-			<div class="div_class_Slide" style="z-index: 5">
+			<div class="div_class_Slide right_out" style="z-index: 5">
 				<img src="img/3.jpg" class="div_class_Img"/>
 				<div class="div_class_Img_Dec">此图来源于网络</div>
 			</div>
-			<div class="div_class_Slide"  style="z-index: 4">
+			<div class="div_class_Slide right_out"  style="z-index: 4">
 				<img src="img/4.jpg" class="div_class_Img"/>
 				<div class="div_class_Img_Dec">此图来源于网络</div>
 			</div>
-			<div class="div_class_Slide" style="z-index: 3">
+			<div class="div_class_Slide right_out" style="z-index: 3">
 				<img src="img/5.jpg" class="div_class_Img"/>
 				<div class="div_class_Img_Dec">此图来源于网络</div>
 			</div>
-			<div class="div_class_Slide" style="z-index: 2">
+			<div class="div_class_Slide right_out" style="z-index: 2">
 				<img src="img/6.jpg" class="div_class_Img"/>
 				<div class="div_class_Img_Dec">此图来源于网络</div>
 			</div>
@@ -44,6 +44,13 @@
 			
 			<!--导航点-->
 			<div id="div_id_Slide_Tabs" style="z-index: 7"></div>
+
+			<div id="div_id_LeftMask">
+				<div style="position: relative; top: 50%; font-size: 30px;cursor: pointer;" onclick="slide_last()"><</div>
+			</div>
+			<div id="div_id_RightMask">
+				<div style="position: relative; top: 50%; font-size: 30px;cursor: pointer;" onclick="slide_next()">></div>
+			</div>
 		</div>
 	</body>
 </html>

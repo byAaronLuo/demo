@@ -37,6 +37,8 @@
 	margin: 0 auto;
 	text-align: center;
 }
+
+
 .div_class_Slide_Tabs{
 	position: relative;
 	display: inline-block;
@@ -52,6 +54,32 @@
 }
 .div_class_Slide_Tabs_Active{
 	background-color: red;
+}
+#div_id_LeftMask{
+	visibility: hidden;
+	position: absolute;
+	z-index: 7;
+	opacity: 0.66;
+	top: 0%;
+	left: 0%;
+	background-color: black;
+	width: 8%;
+	color: white;
+	height: 100%;
+	text-align: center;
+}
+#div_id_RightMask{
+	visibility: hidden;
+	position: absolute;
+	z-index: 7;
+	opacity: 0.36;
+	top: 0%;
+	right: 0%;
+	background-color: black;
+	color: white;
+	width: 8%;
+	height: 100%;
+	text-align: center;
 }
 
 
@@ -104,6 +132,41 @@
 	}
 }
 
+/*遮罩层动画*/
+@-webkit-keyframes 'showMaskLeft'{
+	0%{
+		left: -100%;
+	}
+	100%{
+		left: 0%;
+	}
+}
+@-webkit-keyframes 'showMaskRight'{
+	0%{
+		right: -100%;
+	}
+	100%{
+		right: 0%;
+	}
+}
+
+@-webkit-keyframes 'deleteMaskLeft'{
+	0%{
+		left: 0%;
+	}
+	100%{
+		left: -100%;
+	}
+}
+@-webkit-keyframes 'deleteMaskRight'{
+	0%{
+		right:  0%;
+	}
+	100%{
+		right: -100%;
+	}
+}
+
 .right_in{	
 	visibility:visible;	
 	-webkit-animation-name: 'right_in';	
@@ -123,5 +186,28 @@
 	visibility:hidden;	
 	-webkit-animation-name: 'right_out';
 	-webkit-animation-duration: 1s;	
+}
+
+/*出现遮罩层*/
+.showMaskLeft{
+	visibility: visible;
+	-webkit-animation-name:'showMaskLeft';
+	-webkit-animation-duration: 1s;
+}
+.showMaskRight{
+	visibility: visible;
+	-webkit-animation-name:'showMaskRight';
+	-webkit-animation-duration: 1s;
+}
+/*遮罩层消失*/
+.deleteMaskLeft{
+	visibility: visible;
+	-webkit-animation-name:'deleteMaskLeft';
+	-webkit-animation-duration: 3s;
+}
+.deleteMaskRight{
+	visibility: visible;
+	-webkit-animation-name:'deleteMaskRight';
+	-webkit-animation-duration: 3s;
 }
 

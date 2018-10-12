@@ -16,17 +16,75 @@ function init_tabs(){
 	tabs[slide_index].className = addClass(tabs[slide_index].className,'div_class_Slide_Tabs_Active');
 	cInterval();
 }
+function mouseIn(){
+	pInterval();
+	var leftMask = document.getElementById('div_id_LeftMask');
+	leftMask.style.visibility = 'visible';
+	leftMask.style.left = '0%';
+	if(leftMask.className.length != 0){
+		var name = leftMask.className;
+		leftMask.classList.remove(name);
+	}
+	leftMask.classList.add('showMaskLeft');
+	var rightMask = document.getElementById('div_id_RightMask');
+	rightMask.style.visibility = 'visible';
+	rightMask.style.right = '0%';
+	if(rightMask.className.length != 0){
+		name = rightMask.className;
+		rightMask.classList.remove(name);
+	}
+	rightMask.classList.add('showMaskRight');
+	
+}
+function mouseOut(){
+	cInterval();
+	var leftMask = document.getElementById('div_id_LeftMask');
+	leftMask.style.left = '-100%';
+	if(leftMask.className.length != 0){
+	 	var name = leftMask.className;
+	 	leftMask.classList.remove(name);
+	 }
+	leftMask.classList.add('deleteMaskLeft');
+
+	var rightMask = document.getElementById('div_id_RightMask');
+	rightMask.style.right = '-100%';
+	if(rightMask.className.length != 0){
+		name = rightMask.className;
+		rightMask.classList.remove(name);
+	}
+	rightMask.classList.add('deleteMaskRight');
+}
+function slide_next(){	
+	var x = (slide_index+1) % slide.length;	
+	slide_x(x);
+}
+
+function slide_last(){
+	pInterval();
+	slide[slide_index].className=removeClasses(slide[slide_index].className,'left_in');
+	slide[slide_index].className=removeClasses(slide[slide_index].className,'right_in');
+	slide[slide_index].className=addClass(slide[slide_index].className,'right_out');
+	tabs[slide_index].className = removeClasses(tabs[slide_index].className,"div_class_Slide_Tabs_Active");
+	slide_index=(slide_index-1 + slide.length )%slide.length;
+	slide[slide_index].className=removeClasses(slide[slide_index].className,'left_out');
+	slide[slide_index].className=removeClasses(slide[slide_index].className,'right_out');
+	slide[slide_index].className=addClass(slide[slide_index].className,'left_in');
+	tabs[slide_index].className = addClass(tabs[slide_index].className,"div_class_Slide_Tabs_Active");
+	cInterval();
+}
 function cInterval(){
-	interval = setInterval("autoNext()",5000);
+	if(interval != -1){
+		clearInterval(interval);
+	}
+	interval = setInterval("autoNext()",2000);
 }
 function pInterval(){
 	clearInterval(interval);
+	interval = -1;
 }
 function autoNext(){
-	console.log("当前index为："+ slide_index);
 	slideOut(slide_index);
 	slide_index = (slide_index + 1)%slide.length;
-	console.log("现在index为："+ slide_index);
 	slideIn(slide_index);
 	
 }
@@ -52,7 +110,6 @@ function slide_x(index){
 }
 
 function removeClasses(obj,name){
-	console.log("obj:"+ obj,"name:"+ name);
 	if(obj == null || typeof (obj) != 'string'){
 		return obj;
 	}
@@ -60,43 +117,18 @@ function removeClasses(obj,name){
 	if(x != -1){
 		if(x>0) obj=obj.replace(name,'');
 	}
-	console.log(obj);
 	return obj;
 }
 
-
-// function remCls(o,n){	
-// 	if(o==null||typeof(o)!='string')return o;	
-// 	var x = o.indexOf(n);	
-// 	if(x>-1){		
-// 		if(x>0) o=o.replace(n,'');		
-// 		else o=o.replace(" "+n,'');	
-// 	}	
-// 	return o;
-// }
-
-
-
-function addClass(o,n){
-	if(o==null||typeof(o)!='string')return o;
-	if(o.length>0) o+=' '+n;
-	else o+=n;
-	return o;
+function addClass(obj,name){
+	if(obj==null||typeof obj != 'string'){
+		return obj;
+	}
+	if(obj.length>0) {
+		obj += ' ' + name;
+	}
+	else{
+		obj += name;
+	} 
+	return obj;
 }
-// function slide_next(){	
-// 	var x=(slide_index-1+slide.length)%slide.length;	
-// 	slide_x(x);
-// }
-// function slide_last(){	
-// 	pInterval();	
-// 	slide[slide_index].className=remCls(slide[slide_index].className,'left-in');	
-// 	slide[slide_index].className=remCls(slide[slide_index].className,'right-in');	
-// 	slide[slide_index].className=addCls(slide[slide_index].className,'left-out');	
-// 	tabs[slide_index].className = remCls(tabs[slide_index].className,"slide-tab-acitve");
-// 	slide_index=(slide_index+1)%slide.length;		
-// 	slide[slide_index].className=remCls(slide[slide_index].className,'left-out');	
-// 	slide[slide_index].className=remCls(slide[slide_index].className,'right-out');	
-// 	slide[slide_index].className=addCls(slide[slide_index].className,'right-in');	
-// 	tabs[slide_index].className = addCls(tabs[slide_index].className,"slide-tab-acitve");	
-// 	cInterval();
-// }
