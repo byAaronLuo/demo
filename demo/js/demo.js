@@ -3,7 +3,6 @@ var tabs;
 var slide_index;
 var interval;
 window.onresize = function(){
- console.log(1);
  var containter = document.getElementsByClassName('div_class_Container');
  containter[0].style.height = window.innerHeight + "px" ;
 }
@@ -83,7 +82,7 @@ function cInterval(){
 	if(interval != -1){
 		clearInterval(interval);
 	}
-	interval = setInterval("autoNext()",2000);
+	interval = setInterval("autoNext()",5000);
 }
 function pInterval(){
 	clearInterval(interval);
