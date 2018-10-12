@@ -2,7 +2,14 @@ var slide;
 var tabs;
 var slide_index;
 var interval;
+window.onresize = function(){
+ console.log(1);
+ var containter = document.getElementsByClassName('div_class_Container');
+ containter[0].style.height = window.innerHeight + "px" ;
+}
 function init_tabs(){
+	var containter = document.getElementsByClassName('div_class_Container');
+	containter[0].style.height = window.innerHeight + "px" ;
 	slide = document.getElementsByClassName('div_class_Slide');
 	slide_index = 0;
 	var tabc = document.getElementById('div_id_Slide_Tabs');
