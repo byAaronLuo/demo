@@ -55,6 +55,7 @@ function mouseOut(){
 	rightMask.classList.add('deleteMaskRight');
 }
 function slide_next(){	
+	pInterval();
 	var x = (slide_index+1) % slide.length;	
 	slide_x(x);
 }
@@ -70,7 +71,6 @@ function slide_last(){
 	slide[slide_index].className=removeClasses(slide[slide_index].className,'right_out');
 	slide[slide_index].className=addClass(slide[slide_index].className,'left_in');
 	tabs[slide_index].className = addClass(tabs[slide_index].className,"div_class_Slide_Tabs_Active");
-	cInterval();
 }
 function cInterval(){
 	if(interval != -1){
@@ -106,7 +106,6 @@ function slide_x(index){
 	slideOut(slide_index);
 	slideIn(index);
 	slide_index=index;
-	cInterval();
 }
 
 function removeClasses(obj,name){
