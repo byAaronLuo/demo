@@ -4,18 +4,19 @@ var slide_index;
 var interval;
 window.onresize = function(){
  var containter = document.getElementsByClassName('div_class_Container');
- containter[0].style.height = window.innerHeight + "px" ;
+ containter[0].style.height = window.innerHeight - 48 + "px" ;
 }
+
 function init_tabs(){
 	var containter = document.getElementsByClassName('div_class_Container');
-	containter[0].style.height = window.innerHeight + "px" ;
+	containter[0].style.height = window.innerHeight - 48 + "px" ;
 	slide = document.getElementsByClassName('div_class_Slide');
 	slide_index = 0;
 	var tabc = document.getElementById('div_id_Slide_Tabs');
 	var html = "";
 	for(var i = 0;i <slide.length;i++)
 	{
-		html += '<span class="div_class_Slide_Tabs" onclick = "slide_x('+i+')"></span>';
+		html += '<span class="div_class_Slide_Tabs" onmouseenter = "slide_x('+i+')"></span>';
 	}
 	tabc.innerHTML = html;
 	tabs = tabc.childNodes;
@@ -120,7 +121,8 @@ function removeClasses(obj,name){
 	}
 	var x = obj.indexOf(name);
 	if(x != -1){
-		if(x>0) obj=obj.replace(name,'');
+		if(x>0) 
+			obj=obj.replace(name,'');
 	}
 	return obj;
 }
